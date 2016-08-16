@@ -34,6 +34,9 @@ func (s *MemStats) Gather(acc telegraf.Accumulator) error {
 		"inactive":          vm.Inactive,
 		"used_percent":      100 * float64(vm.Used) / float64(vm.Total),
 		"available_percent": 100 * float64(vm.Available) / float64(vm.Total),
+		"dirty":             vm.Dirty,
+		"writeback":         vm.Writeback,
+		"writebackTmp":      vm.WritebackTmp,
 	}
 	acc.AddFields("mem", fields, nil)
 
